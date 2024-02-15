@@ -1,0 +1,29 @@
+name: MinecraftPlugin
+version: '${version}'
+main: br.com.nicolas.minecraftplugin.MinecraftPlugin
+load: STARTUP
+commands:
+  kit:
+    description: this is a kit command
+    usage: /<kit> [name]
+  speed:
+    description: define player speed
+    usage: /<speed>
+  food:
+    description: food command
+    permission: nksplugin.minecraft.plugin.food
+    permission-message: You don't have permission to run this command
+
+  repeat:
+    description: send myself a message
+    usage: /repeat <message>
+
+permissions:
+  permissions.food:
+    description: allow someone to run the /food command
+    default: op
+    children:
+      permissions.food.bread: true
+      permissions.food.die: true
+  permissions.blockbreak:
+    description: allow break blocks
