@@ -25,8 +25,9 @@ commands:
   spawn:
     description: teleport to spawn
     usage: /spawn
-
-
+  setmessage:
+    description: sets the join message for the server
+    usage: /setmessage <message>
 permissions:
   permissions.food:
     description: allow someone to run the /food command

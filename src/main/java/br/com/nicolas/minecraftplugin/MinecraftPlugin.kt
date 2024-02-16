@@ -1,11 +1,17 @@
 package br.com.nicolas.minecraftplugin
 
 import br.com.nicolas.minecraftplugin.commands.*
+import br.com.nicolas.minecraftplugin.commands.player.FoodCommand
+import br.com.nicolas.minecraftplugin.commands.player.KitCommand
+import br.com.nicolas.minecraftplugin.commands.player.RepeatCommand
+import br.com.nicolas.minecraftplugin.commands.player.SpeedCommand
+import br.com.nicolas.minecraftplugin.commands.set_files.SetMessageCommand
 import br.com.nicolas.minecraftplugin.commands.spawn.SetSpawnCommand
 import br.com.nicolas.minecraftplugin.commands.spawn.SpawnCommand
-import br.com.nicolas.minecraftplugin.listeners.PlayerJoinListener
+import br.com.nicolas.minecraftplugin.commands.target.PotionPlayerCommand
+import br.com.nicolas.minecraftplugin.listeners.player.PlayerJoinListener
 import br.com.nicolas.minecraftplugin.extensions.registerEvent
-import br.com.nicolas.minecraftplugin.listeners.PlayerBedEnterListener
+import br.com.nicolas.minecraftplugin.listeners.player.PlayerBedEnterListener
 import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
 import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
 import org.bukkit.Bukkit
@@ -21,7 +27,6 @@ class MinecraftPlugin : JavaPlugin() {
 
         Bukkit.getConsoleSender().sendMessage("§aPlugin is active!")
 
-        config.options().copyDefaults()
         saveDefaultConfig()
 
         setupCommands()
@@ -37,10 +42,11 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("potion").executor = PotionPlayerCommand()
         getCommand("setspawn").executor = SetSpawnCommand(this)
         getCommand("spawn").executor = SpawnCommand(this)
+        getCommand("setmessage").executor = SetMessageCommand(this)
     }
 
     private fun setupEvents() {
-        registerEvent(PlayerJoinListener(), this)
+        registerEvent(PlayerJoinListener(this), this)
         registerEvent(ShearSheepListener(), this)
         registerEvent(PlayerBedEnterListener(), this)
         registerEvent(BlockBreakEvent(), this)

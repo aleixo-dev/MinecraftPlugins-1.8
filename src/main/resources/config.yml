@@ -1,0 +1,7 @@
+join-message: '&aWelcome back to the server, &c%player%&a! Good to have you back'
+feed-players: true
+show-foods: true
+foods:
+  - 'Apple'
+  - 'Orange'
+  - 'Potato'
