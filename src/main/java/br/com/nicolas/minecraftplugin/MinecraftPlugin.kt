@@ -28,6 +28,7 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("speed").executor = SpeedCommand()
         getCommand("food").executor = FoodCommand()
         getCommand("repeat").executor = RepeatCommand()
+        getCommand("potion").executor = PotionPlayerCommand()
     }
 
     private fun setupEvents() {

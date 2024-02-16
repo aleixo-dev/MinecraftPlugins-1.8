@@ -18,6 +18,10 @@ commands:
     description: send myself a message
     usage: /repeat <message>
 
+  potion:
+    description: sent a potion effect to player
+    usage: /potion <player>
+
 permissions:
   permissions.food:
     description: allow someone to run the /food command
