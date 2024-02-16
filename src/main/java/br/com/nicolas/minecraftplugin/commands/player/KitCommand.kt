@@ -1,4 +1,4 @@
-package br.com.nicolas.minecraftplugin.commands
+package br.com.nicolas.minecraftplugin.commands.player
 
 import br.com.nicolas.minecraftplugin.utils.item
 import br.com.nicolas.minecraftplugin.utils.meta
@@ -8,7 +8,6 @@ import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.Player
-import org.bukkit.inventory.meta.EnchantmentStorageMeta
 import org.bukkit.inventory.meta.ItemMeta
 
 class KitCommand : CommandExecutor {

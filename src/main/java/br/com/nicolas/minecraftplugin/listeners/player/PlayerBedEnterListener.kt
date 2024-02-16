@@ -1,6 +1,5 @@
-package br.com.nicolas.minecraftplugin.listeners
+package br.com.nicolas.minecraftplugin.listeners.player
 
-import br.com.nicolas.minecraftplugin.MinecraftPlugin
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

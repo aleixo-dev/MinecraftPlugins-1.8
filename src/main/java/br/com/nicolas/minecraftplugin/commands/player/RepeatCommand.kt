@@ -1,4 +1,4 @@
-package br.com.nicolas.minecraftplugin.commands
+package br.com.nicolas.minecraftplugin.commands.player
 
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor

@@ -1,4 +1,4 @@
-package br.com.nicolas.minecraftplugin.commands
+package br.com.nicolas.minecraftplugin.commands.target
 
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
