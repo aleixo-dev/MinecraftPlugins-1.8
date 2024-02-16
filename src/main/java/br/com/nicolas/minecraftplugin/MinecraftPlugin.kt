@@ -1,10 +1,13 @@
 package br.com.nicolas.minecraftplugin
 
 import br.com.nicolas.minecraftplugin.commands.*
+import br.com.nicolas.minecraftplugin.commands.spawn.SetSpawnCommand
+import br.com.nicolas.minecraftplugin.commands.spawn.SpawnCommand
 import br.com.nicolas.minecraftplugin.listeners.PlayerJoinListener
 import br.com.nicolas.minecraftplugin.extensions.registerEvent
 import br.com.nicolas.minecraftplugin.listeners.PlayerBedEnterListener
 import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
+import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -18,6 +21,9 @@ class MinecraftPlugin : JavaPlugin() {
 
         Bukkit.getConsoleSender().sendMessage("§aPlugin is active!")
 
+        config.options().copyDefaults()
+        saveDefaultConfig()
+
         setupCommands()
         setupEvents()
 
@@ -29,6 +35,8 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("food").executor = FoodCommand()
         getCommand("repeat").executor = RepeatCommand()
         getCommand("potion").executor = PotionPlayerCommand()
+        getCommand("setspawn").executor = SetSpawnCommand(this)
+        getCommand("spawn").executor = SpawnCommand(this)
     }
 
     private fun setupEvents() {
@@ -36,6 +44,7 @@ class MinecraftPlugin : JavaPlugin() {
         registerEvent(ShearSheepListener(), this)
         registerEvent(PlayerBedEnterListener(), this)
         registerEvent(BlockBreakEvent(), this)
+        registerEvent(SpawnListeners(this), this)
     }
 
 
