@@ -13,10 +13,19 @@ commands:
     description: food command
     permission: nksplugin.minecraft.plugin.food
     permission-message: You don't have permission to run this command
-
   repeat:
     description: send myself a message
     usage: /repeat <message>
+  potion:
+    description: sent a potion effect to player
+    usage: /potion <player>
+  setspawn:
+    description: define spawn point
+    usage: /setspawn
+  spawn:
+    description: teleport to spawn
+    usage: /spawn
+
 
 permissions:
   permissions.food:
