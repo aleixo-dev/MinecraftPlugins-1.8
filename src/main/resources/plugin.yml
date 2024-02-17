@@ -28,6 +28,13 @@ commands:
   setmessage:
     description: sets the join message for the server
     usage: /setmessage <message>
+  menu:
+    description: open the menu
+    usage: /menu
+    aliases:
+      - /m
+      - /mnu
+      - /men
 permissions:
   permissions.food:
     description: allow someone to run the /food command

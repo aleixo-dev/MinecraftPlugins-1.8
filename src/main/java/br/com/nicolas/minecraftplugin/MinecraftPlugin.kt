@@ -1,6 +1,7 @@
 package br.com.nicolas.minecraftplugin
 
 import br.com.nicolas.minecraftplugin.commands.*
+import br.com.nicolas.minecraftplugin.commands.menu.MenuCommand
 import br.com.nicolas.minecraftplugin.commands.player.FoodCommand
 import br.com.nicolas.minecraftplugin.commands.player.KitCommand
 import br.com.nicolas.minecraftplugin.commands.player.RepeatCommand
@@ -14,6 +15,7 @@ import br.com.nicolas.minecraftplugin.extensions.registerEvent
 import br.com.nicolas.minecraftplugin.listeners.player.PlayerBedEnterListener
 import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
 import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
+import br.com.nicolas.minecraftplugin.listeners.menu.MenuListener
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -43,6 +45,7 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("setspawn").executor = SetSpawnCommand(this)
         getCommand("spawn").executor = SpawnCommand(this)
         getCommand("setmessage").executor = SetMessageCommand(this)
+        getCommand("menu").executor = MenuCommand()
     }
 
     private fun setupEvents() {
@@ -51,6 +54,7 @@ class MinecraftPlugin : JavaPlugin() {
         registerEvent(PlayerBedEnterListener(), this)
         registerEvent(BlockBreakEvent(), this)
         registerEvent(SpawnListeners(this), this)
+        registerEvent(MenuListener(), this)
     }
 
 
