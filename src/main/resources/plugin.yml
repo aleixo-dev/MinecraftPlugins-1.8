@@ -35,6 +35,9 @@ commands:
       - /m
       - /mnu
       - /men
+  setEffect:
+    description: set effect
+    usage: /effect
 permissions:
   permissions.food:
     description: allow someone to run the /food command

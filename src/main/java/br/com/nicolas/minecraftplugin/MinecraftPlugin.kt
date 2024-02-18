@@ -1,6 +1,7 @@
 package br.com.nicolas.minecraftplugin
 
 import br.com.nicolas.minecraftplugin.commands.*
+import br.com.nicolas.minecraftplugin.commands.cooldowns.EffectCommand
 import br.com.nicolas.minecraftplugin.commands.menu.MenuCommand
 import br.com.nicolas.minecraftplugin.commands.player.FoodCommand
 import br.com.nicolas.minecraftplugin.commands.player.KitCommand
@@ -46,6 +47,7 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("spawn").executor = SpawnCommand(this)
         getCommand("setmessage").executor = SetMessageCommand(this)
         getCommand("menu").executor = MenuCommand()
+        getCommand("setEffect").executor = EffectCommand()
     }
 
     private fun setupEvents() {
