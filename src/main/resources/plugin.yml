@@ -38,6 +38,9 @@ commands:
   setEffect:
     description: set effect
     usage: /effect
+  gui:
+    description: new menu
+    usage: /gui
 permissions:
   permissions.food:
     description: allow someone to run the /food command
