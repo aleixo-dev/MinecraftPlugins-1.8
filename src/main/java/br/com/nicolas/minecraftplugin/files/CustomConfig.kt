@@ -22,7 +22,7 @@ object CustomConfig {
             try {
                 file.createNewFile()
             } catch (exception: IOException) {
-
+                println("ooops!")
             }
         }
         fileConfiguration = YamlConfiguration.loadConfiguration(file)
