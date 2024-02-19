@@ -41,6 +41,9 @@ commands:
   gui:
     description: new menu
     usage: /gui
+  hologram:
+    description: create a hologram
+    usage: /hologram
 permissions:
   permissions.food:
     description: allow someone to run the /food command

@@ -2,6 +2,7 @@ package br.com.nicolas.minecraftplugin
 
 import br.com.nicolas.minecraftplugin.commands.*
 import br.com.nicolas.minecraftplugin.commands.cooldowns.EffectCommand
+import br.com.nicolas.minecraftplugin.commands.holograms.HologramsCommand
 import br.com.nicolas.minecraftplugin.commands.menu.GuiCommand
 import br.com.nicolas.minecraftplugin.commands.menu.MenuCommand
 import br.com.nicolas.minecraftplugin.commands.player.FoodCommand
@@ -51,6 +52,7 @@ class MinecraftPlugin : JavaPlugin() {
         // getCommand("menu").executor = MenuCommand()
         getCommand("setEffect").executor = EffectCommand()
         getCommand("gui").executor = GuiCommand()
+        getCommand("hologram").executor = HologramsCommand()
     }
 
     private fun setupEvents() {
