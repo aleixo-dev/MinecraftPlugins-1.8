@@ -44,6 +44,8 @@ commands:
   hologram:
     description: create a hologram
     usage: /hologram
+  message:
+  prereload:
 permissions:
   permissions.food:
     description: allow someone to run the /food command

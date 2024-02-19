@@ -5,16 +5,14 @@ import br.com.nicolas.minecraftplugin.commands.cooldowns.EffectCommand
 import br.com.nicolas.minecraftplugin.commands.holograms.HologramsCommand
 import br.com.nicolas.minecraftplugin.commands.menu.GuiCommand
 import br.com.nicolas.minecraftplugin.commands.menu.MenuCommand
-import br.com.nicolas.minecraftplugin.commands.player.FoodCommand
-import br.com.nicolas.minecraftplugin.commands.player.KitCommand
-import br.com.nicolas.minecraftplugin.commands.player.RepeatCommand
-import br.com.nicolas.minecraftplugin.commands.player.SpeedCommand
+import br.com.nicolas.minecraftplugin.commands.player.*
 import br.com.nicolas.minecraftplugin.commands.set_files.SetMessageCommand
 import br.com.nicolas.minecraftplugin.commands.spawn.SetSpawnCommand
 import br.com.nicolas.minecraftplugin.commands.spawn.SpawnCommand
 import br.com.nicolas.minecraftplugin.commands.target.PotionPlayerCommand
 import br.com.nicolas.minecraftplugin.listeners.player.PlayerJoinListener
 import br.com.nicolas.minecraftplugin.extensions.registerEvent
+import br.com.nicolas.minecraftplugin.files.CustomConfig
 import br.com.nicolas.minecraftplugin.listeners.player.PlayerBedEnterListener
 import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
 import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
@@ -33,7 +31,16 @@ class MinecraftPlugin : JavaPlugin() {
 
         Bukkit.getConsoleSender().sendMessage("§aPlugin is active!")
 
+        /* setup config.yml */
         saveDefaultConfig()
+
+        /* setup customfile.yml */
+        CustomConfig.apply {
+            setup()
+            fileConfiguration.addDefault("message", "This is a test message")
+            fileConfiguration.options().copyDefaults(true)
+            save()
+        }
 
         setupCommands()
         setupEvents()
@@ -53,6 +60,8 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("setEffect").executor = EffectCommand()
         getCommand("gui").executor = GuiCommand()
         getCommand("hologram").executor = HologramsCommand()
+        getCommand("message").executor = MessagePlayer()
+        getCommand("prereload").executor = PreReload()
     }
 
     private fun setupEvents() {
