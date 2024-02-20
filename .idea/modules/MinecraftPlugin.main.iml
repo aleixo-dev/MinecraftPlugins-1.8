@@ -10,4 +10,9 @@
       </configuration>
     </facet>
   </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="ActionBarAPI" level="project" />
+  </component>
 </module>

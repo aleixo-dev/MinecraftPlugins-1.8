@@ -1,6 +1,7 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group = 'br.com.nicolas'
@@ -58,7 +59,9 @@ compileTestKotlin {
     }
 }
 
-jar {
-    archiveFileName = 'NKMinecraftPlugin.jar'
-    destinationDirectory = file('C:/Users/Nicolas/Desktop/SERVIDOR/SERVIDOR_1_8/plugins')
+shadowJar {
+    destinationDirectory.set(file("C:\\Users\\nicol\\Desktop\\SERVIDOR_1_8\\plugins"))
+    archiveBaseName.set('MinecraftPlugin')
+    archiveClassifier.set('')
+    archiveVersion.set('')
 }
