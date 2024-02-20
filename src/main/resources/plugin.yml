@@ -46,6 +46,7 @@ commands:
     usage: /hologram
   message:
   prereload:
+  endgame:
 permissions:
   permissions.food:
     description: allow someone to run the /food command

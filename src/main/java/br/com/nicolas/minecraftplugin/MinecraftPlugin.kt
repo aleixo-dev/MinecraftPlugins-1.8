@@ -2,6 +2,7 @@ package br.com.nicolas.minecraftplugin
 
 import br.com.nicolas.minecraftplugin.commands.*
 import br.com.nicolas.minecraftplugin.commands.cooldowns.EffectCommand
+import br.com.nicolas.minecraftplugin.commands.custom_event.GameEndCommand
 import br.com.nicolas.minecraftplugin.commands.holograms.HologramsCommand
 import br.com.nicolas.minecraftplugin.commands.menu.GuiCommand
 import br.com.nicolas.minecraftplugin.commands.menu.MenuCommand
@@ -13,6 +14,7 @@ import br.com.nicolas.minecraftplugin.commands.target.PotionPlayerCommand
 import br.com.nicolas.minecraftplugin.listeners.player.PlayerJoinListener
 import br.com.nicolas.minecraftplugin.extensions.registerEvent
 import br.com.nicolas.minecraftplugin.files.CustomConfig
+import br.com.nicolas.minecraftplugin.listeners.GameListener
 import br.com.nicolas.minecraftplugin.listeners.player.PlayerBedEnterListener
 import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
 import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
@@ -62,6 +64,7 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("hologram").executor = HologramsCommand()
         getCommand("message").executor = MessagePlayer()
         getCommand("prereload").executor = PreReload()
+        getCommand("endgame").executor = GameEndCommand()
     }
 
     private fun setupEvents() {
@@ -72,6 +75,7 @@ class MinecraftPlugin : JavaPlugin() {
         registerEvent(SpawnListeners(this), this)
         registerEvent(MenuListener(), this)
         registerEvent(GUIMoveItem(), this)
+        registerEvent(GameListener(), this)
     }
 
 
