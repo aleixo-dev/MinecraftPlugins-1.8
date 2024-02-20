@@ -47,6 +47,9 @@ commands:
   message:
   prereload:
   endgame:
+  vanish:
+    description: Vanish you from the world
+
 permissions:
   permissions.food:
     description: allow someone to run the /food command

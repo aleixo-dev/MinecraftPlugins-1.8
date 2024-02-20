@@ -1,4 +1,4 @@
-package br.com.nicolas.minecraftplugin.events
+package br.com.nicolas.minecraftplugin.custom_events
 
 import org.bukkit.entity.Player
 import org.bukkit.event.Event

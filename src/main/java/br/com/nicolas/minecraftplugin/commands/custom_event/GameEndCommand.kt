@@ -1,6 +1,6 @@
 package br.com.nicolas.minecraftplugin.commands.custom_event
 
-import br.com.nicolas.minecraftplugin.events.GameEndEvent
+import br.com.nicolas.minecraftplugin.custom_events.GameEndEvent
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor

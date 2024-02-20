@@ -20,10 +20,14 @@ import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
 import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
 import br.com.nicolas.minecraftplugin.listeners.menu.GUIMoveItem
 import br.com.nicolas.minecraftplugin.listeners.menu.MenuListener
+import br.com.nicolas.minecraftplugin.vanish.command.VanishCommand
 import org.bukkit.Bukkit
+import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 
 class MinecraftPlugin : JavaPlugin() {
+
+    val invisibleList = ArrayList<Player>()
 
     override fun onLoad() {
         logger.info("plugin loading..")
@@ -58,13 +62,17 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("setspawn").executor = SetSpawnCommand(this)
         getCommand("spawn").executor = SpawnCommand(this)
         getCommand("setmessage").executor = SetMessageCommand(this)
-        // getCommand("menu").executor = MenuCommand()
+        getCommand("menu").executor = MenuCommand()
         getCommand("setEffect").executor = EffectCommand()
         getCommand("gui").executor = GuiCommand()
         getCommand("hologram").executor = HologramsCommand()
         getCommand("message").executor = MessagePlayer()
         getCommand("prereload").executor = PreReload()
         getCommand("endgame").executor = GameEndCommand()
+
+        /* VANISH */
+        getCommand("vanish").executor = VanishCommand(this)
+
     }
 
     private fun setupEvents() {

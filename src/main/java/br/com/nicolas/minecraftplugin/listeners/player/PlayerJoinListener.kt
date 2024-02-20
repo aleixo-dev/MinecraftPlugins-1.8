@@ -2,6 +2,7 @@ package br.com.nicolas.minecraftplugin.listeners.player
 
 import br.com.nicolas.minecraftplugin.MinecraftPlugin
 import org.bukkit.ChatColor
+import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
@@ -30,6 +31,15 @@ class PlayerJoinListener(private val plugin: MinecraftPlugin) : Listener {
             for (food in foods) {
                 event.player.sendMessage("- $food")
             }
+        }
+
+        invisiblePlayer(event.player)
+
+    }
+
+    private fun invisiblePlayer(player: Player) {
+        for (invisiblePlayer in plugin.invisibleList) {
+            player.hidePlayer(player)
         }
     }
 }
