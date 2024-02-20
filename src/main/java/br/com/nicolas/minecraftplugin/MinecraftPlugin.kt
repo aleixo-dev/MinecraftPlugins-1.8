@@ -20,6 +20,8 @@ import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
 import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
 import br.com.nicolas.minecraftplugin.listeners.menu.GUIMoveItem
 import br.com.nicolas.minecraftplugin.listeners.menu.MenuListener
+import br.com.nicolas.minecraftplugin.listeners.weather.GoodWeatherListener
+import br.com.nicolas.minecraftplugin.tasks.KeepDayTask
 import br.com.nicolas.minecraftplugin.vanish.command.VanishCommand
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
@@ -51,12 +53,15 @@ class MinecraftPlugin : JavaPlugin() {
         setupCommands()
         setupEvents()
 
+        /* SCHEDULERS / TASKS */
+        KeepDayTask(this).runTaskTimer(this, 0, 500L)
+
     }
 
     private fun setupCommands() {
         getCommand("kit").executor = KitCommand()
         getCommand("speed").executor = SpeedCommand()
-        getCommand("food").executor = FoodCommand()
+        getCommand("food").executor = FoodCommand(this)
         getCommand("repeat").executor = RepeatCommand()
         getCommand("potion").executor = PotionPlayerCommand()
         getCommand("setspawn").executor = SetSpawnCommand(this)
@@ -84,6 +89,7 @@ class MinecraftPlugin : JavaPlugin() {
         registerEvent(MenuListener(), this)
         registerEvent(GUIMoveItem(), this)
         registerEvent(GameListener(), this)
+        registerEvent(GoodWeatherListener(), this)
     }
 
 

@@ -5,3 +5,12 @@ foods:
   - 'Apple'
   - 'Orange'
   - 'Potato'
+
+lobby-world: "world"
+
+motd: false
+motd-message:
+  - '[*] -------------------------------------------[*]'
+  - 'Welcome to the Best Server!'
+  - '[*] -------------------------------------------[*]'
+

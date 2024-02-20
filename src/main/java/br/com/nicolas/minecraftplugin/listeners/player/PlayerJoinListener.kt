@@ -1,6 +1,7 @@
 package br.com.nicolas.minecraftplugin.listeners.player
 
 import br.com.nicolas.minecraftplugin.MinecraftPlugin
+import br.com.nicolas.minecraftplugin.tasks.GreetingServerTask
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -18,6 +19,7 @@ class PlayerJoinListener(private val plugin: MinecraftPlugin) : Listener {
         if (joinMessage != null) {
             joinMessage = joinMessage.replace("%player%", event.player.displayName)
             event.player.sendMessage(ChatColor.translateAlternateColorCodes('&', joinMessage))
+            GreetingServerTask(plugin, event.player).runTaskLater(plugin, 40)
         }
 
         val feedPlayer = plugin.config.getBoolean("feed-players")
@@ -34,12 +36,21 @@ class PlayerJoinListener(private val plugin: MinecraftPlugin) : Listener {
         }
 
         invisiblePlayer(event.player)
+        motdServerMessage(event.player)
 
     }
 
     private fun invisiblePlayer(player: Player) {
         for (invisiblePlayer in plugin.invisibleList) {
             player.hidePlayer(player)
+        }
+    }
+
+    private fun motdServerMessage(player: Player) {
+        if (plugin.config.getBoolean("motd")) {
+            for (i in plugin.config.getStringList("motd-message")) {
+                player.sendMessage(i)
+            }
         }
     }
 }

@@ -1,11 +1,15 @@
 package br.com.nicolas.minecraftplugin.commands.player
 
+import br.com.nicolas.minecraftplugin.MinecraftPlugin
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.bukkit.scheduler.BukkitRunnable
 
-class FoodCommand : CommandExecutor {
+class FoodCommand(
+    private val plugin: MinecraftPlugin
+) : CommandExecutor {
 
     override fun onCommand(
         sender: CommandSender?,
@@ -20,7 +24,13 @@ class FoodCommand : CommandExecutor {
         if (player.hasPermission("permissions.food")) {
             player.apply {
                 foodLevel = 20
-                sendMessage("Yeaah! I'm feel so strong again!")
+                sendMessage("Hm-hm-hm ...")
+
+                object : BukkitRunnable() {
+                    override fun run() {
+                        sendMessage("Yeaah! I'm feel so strong again!")
+                    }
+                }.runTaskLater(plugin, 20)
             }
         } else {
             player.sendMessage("Oops! you don't have permissions to run this command.")
