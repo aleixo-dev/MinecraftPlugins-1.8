@@ -1,12 +1,14 @@
 package br.com.nicolas.minecraftplugin.listeners.player
 
 import br.com.nicolas.minecraftplugin.MinecraftPlugin
+import br.com.nicolas.minecraftplugin.automessage.AutoMessageTask
 import br.com.nicolas.minecraftplugin.tasks.GreetingServerTask
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
+import org.bukkit.scheduler.BukkitRunnable
 
 class PlayerJoinListener(private val plugin: MinecraftPlugin) : Listener {
 
@@ -38,7 +40,17 @@ class PlayerJoinListener(private val plugin: MinecraftPlugin) : Listener {
         invisiblePlayer(event.player)
         motdServerMessage(event.player)
 
+        if (plugin.config.getBoolean("enabled-auto-message")) {
+
+            AutoMessageTask(plugin, event.player).runTaskTimerAsynchronously(
+                plugin,
+                plugin.config.getLong("delay-start"),
+                plugin.config.getLong("delay-message")
+            )
+        }
+
     }
+
 
     private fun invisiblePlayer(player: Player) {
         for (invisiblePlayer in plugin.invisibleList) {

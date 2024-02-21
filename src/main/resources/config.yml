@@ -14,3 +14,21 @@ motd-message:
   - 'Welcome to the Best Server!'
   - '[*] -------------------------------------------[*]'
 
+
+# Config AutoMessage #
+
+# enable auto message:
+enabled-auto-message: true
+
+# prefix message
+prefix-message: '&f[&a&lServidor&f]'
+
+delay-start: 300
+delay-message: 500
+
+# messages
+messages:
+  - '&6Welcome to our Minecraft server! Immerse yourself in a world of endless possibilities.'
+  - '&6Hey builders, show off your latest masterpiece! Share screenshots and let the server marvel at your creativity.'
+  - '&5Attention warriors! Gear up and prepare for battle.'
+

@@ -1,5 +1,6 @@
 package br.com.nicolas.minecraftplugin
 
+import br.com.nicolas.minecraftplugin.automessage.AutoMessageTask
 import br.com.nicolas.minecraftplugin.commands.*
 import br.com.nicolas.minecraftplugin.commands.cooldowns.EffectCommand
 import br.com.nicolas.minecraftplugin.commands.custom_event.GameEndCommand
@@ -55,7 +56,6 @@ class MinecraftPlugin : JavaPlugin() {
 
         /* SCHEDULERS / TASKS */
         KeepDayTask(this).runTaskTimer(this, 0, 500L)
-
     }
 
     private fun setupCommands() {
