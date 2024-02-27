@@ -1,6 +1,5 @@
 package br.com.nicolas.minecraftplugin
 
-import br.com.nicolas.minecraftplugin.automessage.AutoMessageTask
 import br.com.nicolas.minecraftplugin.commands.*
 import br.com.nicolas.minecraftplugin.commands.cooldowns.EffectCommand
 import br.com.nicolas.minecraftplugin.commands.custom_event.GameEndCommand
@@ -21,6 +20,8 @@ import br.com.nicolas.minecraftplugin.listeners.ShearSheepListener
 import br.com.nicolas.minecraftplugin.listeners.SpawnListeners
 import br.com.nicolas.minecraftplugin.listeners.menu.GUIMoveItem
 import br.com.nicolas.minecraftplugin.listeners.menu.MenuListener
+import br.com.nicolas.minecraftplugin.custom_plugin_reward.BlockRewardListener
+import br.com.nicolas.minecraftplugin.custom_plugin_reward.RewardCommand
 import br.com.nicolas.minecraftplugin.listeners.weather.GoodWeatherListener
 import br.com.nicolas.minecraftplugin.tasks.KeepDayTask
 import br.com.nicolas.minecraftplugin.vanish.command.VanishCommand
@@ -74,6 +75,7 @@ class MinecraftPlugin : JavaPlugin() {
         getCommand("message").executor = MessagePlayer()
         getCommand("prereload").executor = PreReload()
         getCommand("endgame").executor = GameEndCommand()
+        getCommand("swordboss").executor = RewardCommand(this)
 
         /* VANISH */
         getCommand("vanish").executor = VanishCommand(this)
@@ -90,6 +92,7 @@ class MinecraftPlugin : JavaPlugin() {
         registerEvent(GUIMoveItem(), this)
         registerEvent(GameListener(), this)
         registerEvent(GoodWeatherListener(), this)
+        registerEvent(BlockRewardListener(this), this)
     }
 
 

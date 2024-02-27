@@ -11,7 +11,7 @@ class KeepDayTask(
     override fun run() {
         val world = plugin.config.getString("lobby-world")
         if (Bukkit.getServer().getWorld(world) != null) {
-            Bukkit.getServer().getWorld(world).time = 0L
+            Bukkit.getServer().getWorld(world).time = 2000L
         } else {
             println("The world currently set as lobby does not exists.")
         }

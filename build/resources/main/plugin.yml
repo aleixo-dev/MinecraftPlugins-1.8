@@ -50,6 +50,10 @@ commands:
   vanish:
     description: Vanish you from the world
 
+# NkRewardEntities
+  swordboss:
+    description: give a swordboss to kill entities boss
+
 permissions:
   permissions.food:
     description: allow someone to run the /food command

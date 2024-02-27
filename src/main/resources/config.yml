@@ -32,3 +32,9 @@ messages:
   - '&6Hey builders, show off your latest masterpiece! Share screenshots and let the server marvel at your creativity.'
   - '&5Attention warriors! Gear up and prepare for battle.'
 
+
+# NKRewardEntities
+
+# Material type to kill entity boss eg: 'DIAMOND_SWORD or IRON_SWORD'
+material-killer: 'DIAMOND_SWORD'
+material-killer-name: "&e&lGod's Sword"

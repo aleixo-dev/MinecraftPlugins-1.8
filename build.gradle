@@ -60,7 +60,7 @@ compileTestKotlin {
 }
 
 shadowJar {
-    destinationDirectory.set(file("C:/Users/Nicolas/Desktop/SERVIDOR/SERVIDOR_1_8/plugins"))
+    destinationDirectory.set(file("C:/Users/Nicolas/Desktop/SERVIDOR/SERVIDOR_PAPER/plugins"))
     archiveBaseName.set('MinecraftPlugin')
     archiveClassifier.set('')
     archiveVersion.set('')
